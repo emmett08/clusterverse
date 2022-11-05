@@ -73,6 +73,9 @@
       poll: 0
       register: r__ec2
 
+    - name: debug | r__ec2
+      debug: msg="{{r__ec2.results}}"
+
     - name: create/aws | Wait for aws instance creation to complete
       async_status: { jid: "{{ item.ansible_job_id }}" }
       register: r__async_status__ec2
